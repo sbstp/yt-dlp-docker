@@ -4,5 +4,8 @@ Tools to build a container with `yt-dlp`, `ffmpeg` and `phantomjs`.
 ## Build the image
 * `make build`
 
-## Run the yt-dlp image
-* `./yt-dlp [args]`
+## Install globally
+* `make install`
+
+## Run the yt-dlp image via the script
+* `yt-dlp [args]`
