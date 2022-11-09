@@ -1,9 +1,8 @@
 FROM debian:bullseye-slim AS builder
 
-ARG PHANTOMJS_URL="https://github.com/sbstp/yt-dlp-docker/blob/master/phantomjs-2.1.1-linux-x86_64.tar.bz2?raw=true"
+COPY phantomjs-2.1.1-linux-x86_64.tar.bz2 /phantomjs.tar.bz2
 
-RUN apt-get update && apt-get install -y bzip2 curl tar && \
-    curl -L -o phantomjs.tar.bz2 "$PHANTOMJS_URL" && \
+RUN apt-get update && apt-get install -y bzip2 tar && \
     tar -xvjf phantomjs.tar.bz2
 
 FROM python:3.10-slim-bullseye
