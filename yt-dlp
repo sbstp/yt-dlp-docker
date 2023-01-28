@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-docker run --rm -it --user "$(id -u):$(id -g)" -v "$(pwd):$(pwd)" -w "$(pwd)" yt-dlp "$@"
+docker run --rm -it --user "$(id -u):$(id -g)" -v "$(pwd):$(pwd)" -w "$(pwd)" --pull always ghcr.io/sbstp/yt-dlp-docker "$@"
