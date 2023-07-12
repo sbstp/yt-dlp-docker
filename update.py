@@ -39,8 +39,8 @@ def main():
         set_version(latest)
         print(f"Updated Dockerfile to version {latest}")
         print(f"Please run: git commit -am 'Update to {pad_version(latest)}'")
-        print(f"Please run: git tag {latest}")
-        print(f"Please run: git push --tags")
+        print(f"Please run: git tag -a -m '' {latest}")
+        print(f"Please run: git push --follow-tags")
     else:
         print(f"Up to date {current} == {latest}")
 
