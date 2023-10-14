@@ -39,12 +39,13 @@ def main():
         print(f"yt-dlp {current} -> {latest}")
         set_version(latest)
         print(f"Updated Dockerfile to version {latest}")
-        with open("x.sh", "wt", ) as f:
+        with open("x.sh", "wt") as f:
             f.write(f"#!/bin/sh\n")
             f.write(f"git commit -am 'Update to {pad_version(latest)}'\n")
             f.write(f"git tag -a -m '' {latest}\n")
             f.write(f"git push --follow-tags\n")
         os.chmod("x.sh", 0o755)
+        print("Run ./x.sh to commit & push update")
     else:
         print(f"Up to date {current} == {latest}")
 
