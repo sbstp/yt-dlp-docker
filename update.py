@@ -10,8 +10,9 @@ def get_latest_version() -> str:
     resp.raise_for_status()
     rss = ElementTree.fromstring(resp.text)
     channel = rss.findall('channel')[0]
-    versions = channel.findall('item')
-    return versions[0].find("title").text
+    versions = [v.find("title").text for v in channel.findall('item')]
+    versions = [v for v in versions if not v.endswith(".dev0")]
+    return versions[0]
 
 
 def get_current_version() -> str:
