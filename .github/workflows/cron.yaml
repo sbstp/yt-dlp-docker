@@ -1,0 +1,18 @@
+on:
+  schedule:
+    - cron: "44 * * * *"
+  workflow_dispatch:
+
+jobs:
+  check-for-updates:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+
+      - run: pip install requests
+      - run: python ci/update.py
