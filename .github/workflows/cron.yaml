@@ -1,7 +1,7 @@
 name: Cron
 on:
   schedule:
-    - cron: "44 * * * *"
+    - cron: "15 */12 * * *" # Twice a day
   workflow_dispatch:
 jobs:
   check-for-updates:
