@@ -45,8 +45,8 @@ def main():
         set_version(latest)
         with open("x.sh", "wt") as f:
             f.write(f"#!/bin/sh\n")
-            f.write("git config --global user.email 'git.sbstp.ca@gmail.com'")
-            f.write("git config --global user.name 'Automated Update'")
+            f.write("git config user.email 'git.sbstp.ca@gmail.com'\n")
+            f.write("git config user.name 'Automated Update'\n")
             f.write(f"git commit -am 'Update to {pad_version(latest)}'\n")
             f.write(f"git tag -a -m '' {latest}\n")
             f.write(f"git push --follow-tags\n")
