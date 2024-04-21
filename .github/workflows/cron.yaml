@@ -13,6 +13,15 @@ jobs:
 
       - name: Install Python
         uses: actions/setup-python@v5
+        with:
+          version: '3.12'
 
       - run: pip install requests
       - run: python ci/update.py
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT }}
+          branch: ${{ github.ref }}
+          tags: true

@@ -49,7 +49,6 @@ def main():
             f.write("git config user.name 'Automated Update'\n")
             f.write(f"git commit -am 'Update to {pad_version(latest)}'\n")
             f.write(f"git tag -a -m '' {latest}\n")
-            f.write(f"git push --follow-tags\n")
         os.chmod("x.sh", 0o755)
         subprocess.check_call(["./x.sh"])
     else:
