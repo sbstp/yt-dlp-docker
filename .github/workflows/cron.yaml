@@ -1,8 +1,8 @@
+name: Cron
 on:
   schedule:
     - cron: "44 * * * *"
   workflow_dispatch:
-
 jobs:
   check-for-updates:
     runs-on: ubuntu-latest
