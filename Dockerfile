@@ -14,6 +14,6 @@ RUN echo "deb https://deb.debian.org/debian/ sid main contrib non-free" >> /etc/
 RUN ffmpeg -version
 ENV OPENSSL_CONF=/etc/ssl/
 RUN /usr/local/bin/phantomjs --version
-RUN pip install yt-dlp==2024.10.22
+RUN pip install yt-dlp==2024.11.4
 
 ENTRYPOINT [ "yt-dlp" ]
