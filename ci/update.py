@@ -25,7 +25,7 @@ def get_current_version() -> str:
 
 def set_version(version: str):
     lines = Path("Dockerfile").read_text().splitlines()
-    new_lines = [re.sub(r"yt-dlp==(\d+\.\d+\.\d+)", f"yt-dlp=={version}", line) for line in lines]
+    new_lines = [re.sub(r"yt-dlp\[default\]==(\d+\.\d+\.\d+)", f"yt-dlp[default]=={version}", line) for line in lines]
     Path("Dockerfile").write_text("\n".join(new_lines) + "\n")
 
 
