@@ -18,7 +18,7 @@ def get_latest_version() -> str:
 
 def get_current_version() -> str:
     for line in Path("Dockerfile").read_text().splitlines():
-        m = re.search(r"yt-dlp==(\d+\.\d+\.\d+)", line)
+        m = re.search(r"yt-dlp\[default\]==(\d+\.\d+\.\d+)", line)
         if m is not None:
             return m.group(1)
 
