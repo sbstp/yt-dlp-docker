@@ -5,16 +5,16 @@ on:
   workflow_dispatch:
 jobs:
   check-for-updates:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
     permissions: write-all
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           token: ${{ secrets.PAT }}
 
       - name: Install Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
 
@@ -22,7 +22,7 @@ jobs:
       - run: python ci/update.py
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@v1.3.0
         with:
           tags: true
           force: true
