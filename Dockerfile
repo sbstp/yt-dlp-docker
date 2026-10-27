@@ -1,7 +1,7 @@
 FROM alpine:3
 
 RUN apk add --update --no-cache quickjs ffmpeg python3 py3-pip
-RUN python3 -m venv /app/venv && /app/venv/bin/pip install "yt-dlp[default]==2026.10.21"
+RUN python3 -m venv /app/venv && /app/venv/bin/pip install "yt-dlp[default]==2026.10.26"
 
 # yt-dlp only enables deno by default; enable the quickjs runtime instead
 RUN mkdir -p /etc/yt-dlp && echo '--js-runtimes quickjs' > /etc/yt-dlp/config
